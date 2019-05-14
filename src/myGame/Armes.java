@@ -1,3 +1,5 @@
+package myGame;
+
 public class Armes {
 
     private String nomBouclier;

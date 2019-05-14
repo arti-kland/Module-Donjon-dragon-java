@@ -1,3 +1,5 @@
+package myGame;
+
 abstract class Personnage {
 
     private String name;

@@ -1,3 +1,4 @@
+package myGame;
 
 public class Guerrier extends Personnage {
 

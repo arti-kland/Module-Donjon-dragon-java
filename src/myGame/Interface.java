@@ -1,15 +1,18 @@
-import java.util.Scanner;
+package myGame;
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Main {
+public class Interface {
 
-    static Scanner scan = new Scanner(System.in);
-    static ArrayList<Personnage> heros = new ArrayList<>();
-    static int menuStart = 0 ;
-    static int i = 0;
-    static int choose;
+    private Scanner scan = new Scanner(System.in);
+    private ArrayList<Personnage> heros = new ArrayList<>();
+    private int menuStart = 0 ;
+    private int i = 0;
+    private int choose;
 
-    public static void main(String[] args) {
+
+    public  void start(){
         do {
             menu();
             if (menuStart == 1) {
@@ -27,24 +30,24 @@ public class Main {
                 modify();
                 /////// SUPPRIMER////////
             }else if (menuStart == 3) {
-              delete();
+                delete();
             }else if (menuStart == 5){
-               showList();
+                showList();
             }else if (menuStart == 6){
-               heros.removeAll(heros);
+                heros.removeAll(heros);
             }else{
                 System.out.println("Ce menu n'existe pas !!! Réessayez !");
             }
         }while ( menuStart != 4);
     }
 
-    public static void createPerso(){
-        System.out.println("Choisissez un Personnage 1.Guerrier 2.Magicien : ");
+    public  void createPerso(){
+        System.out.println("Choisissez un myGame.Personnage 1.myGame.Guerrier 2.myGame.Magicien : ");
         choose = scan.nextInt();
     }
 
-    public static void createWarrior(){
-        String perso = "Guerrier";
+    public  void createWarrior(){
+        String perso = "myGame.Guerrier";
         System.out.println("Vous avez choisi d'être un " + " " + perso);
         Personnage hunts = new Guerrier();
         scan.nextLine();
@@ -73,8 +76,8 @@ public class Main {
         i++;
     }
 
-    public static void createMage(){
-        String perso = "Magicien";
+    public  void createMage(){
+        String perso = "myGame.Magicien";
         System.out.println("Vous avez choisi d'être un " + " " + perso);
         Personnage elfe = new Magicien();
         scan.nextLine();
@@ -103,18 +106,18 @@ public class Main {
         i++;
     }
 
-    public static void menu(){
-        System.out.println("Choisissez :\n 1 - Créer un Personnage\n 2 - Modifier un Personnage\n 3 - Supprimer un personnage\n 4 - Quitter\n 5 - Afficher héros\n 6 - Explose tout !");
+    public  void menu(){
+        System.out.println("Choisissez :\n 1 - Créer un myGame.Personnage\n 2 - Modifier un myGame.Personnage\n 3 - Supprimer un personnage\n 4 - Quitter\n 5 - Afficher héros\n 6 - Explose tout !");
         menuStart = scan.nextInt();
     }
 
-    public static void showList(){
+    public  void showList(){
         for (int l = 0; l < heros.size(); l++) {
             System.out.println("A l'emplacement : " + l + " du tableau des héros nous avons : " + heros.get(l).toString());
         }
     }
 
-    public static void modify(){
+    public  void modify(){
         System.out.println("Choisissez le hero à modifier : ");
         for (int l = 0; l < heros.size(); l++) {
             System.out.println("Tapez : " +  l + " pour modifier ce hero -> " + heros.get(l).toString());
@@ -134,7 +137,7 @@ public class Main {
         System.out.println(heros.get(modifyChoice));
     }
 
-    public static void delete(){
+    public  void delete(){
         System.out.println("Choisissez le hero à supprimer : ");
         for (int l = 0; l < heros.size(); l++) {
             System.out.println("Tapez : " + l + " pour supprimer ce hero -> " + heros.get(l).toString());
@@ -144,5 +147,3 @@ public class Main {
         showList();
     }
 }
-
-

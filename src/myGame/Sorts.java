@@ -1,3 +1,5 @@
+package myGame;
+
 public class Sorts {
 
     private String nomPhiltre;
